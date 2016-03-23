@@ -1,5 +1,7 @@
 import user from './user'
+import quiz from './quiz'
 
 export default {
-  user
+  user,
+  quiz
 }

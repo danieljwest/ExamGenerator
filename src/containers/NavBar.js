@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { routeActions } from 'react-router-redux'
+import { push } from 'react-router-redux'
 import { logout, loginExpired } from 'redux/modules/auth'
 import { showLogin } from 'redux/modules/login'
 import Navbar from 'react-bootstrap/lib/Navbar'
@@ -19,7 +19,7 @@ export const handleSelect = function (event, actionKey) {
   return (dispatch, getState) => {
     if (typeof actionKey === 'string') {
       // Route path
-      dispatch(routeActions.push(actionKey))
+      dispatch(push(actionKey))
     } else {
       // Action
       dispatch(actionKey)
@@ -65,6 +65,7 @@ export class NavBar extends React.Component {
           <Navbar.Collapse>
             <Nav pullRight onSelect={this.props.handleSelect} id='top-nav'>
               <MenuItem eventKey='/'><Glyphicon glyph='home'/> Home</MenuItem>
+              <MenuItem eventKey='/Quizzes'> Quizzes</MenuItem>
                 {authMenu}
                 {!isAuthenticated() &&
                   <MenuItem eventKey={this.props.showLogin} id='login-button'>
