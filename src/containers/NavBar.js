@@ -65,6 +65,7 @@ export class NavBar extends React.Component {
           <Navbar.Collapse>
             <Nav pullRight onSelect={this.props.handleSelect} id='top-nav'>
               <MenuItem eventKey='/'><Glyphicon glyph='home'/> Home</MenuItem>
+              <MenuItem eventKey='/Quizzes'> Quizzes</MenuItem>
                 {authMenu}
                 {!isAuthenticated() &&
                   <MenuItem eventKey={this.props.showLogin} id='login-button'>

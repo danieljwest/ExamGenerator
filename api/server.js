@@ -53,6 +53,18 @@ const execute = () => {
   debug('Syncing to the database')
   db.sync({force: true}).then(() => {
     userService.add('admin', '1234', true)
+    db.quiz.create({
+      name: 'Quiz 1',
+      isActive: true
+    })
+    db.quiz.create({
+      name: 'Quiz 2',
+      isActive: false
+    })
+    db.quiz.create({
+      name: 'Quiz 3',
+      isActive: true
+    })
     app.listen(port, host)
     debug(`API started on ${host}:${port}`)
   })
