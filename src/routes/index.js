@@ -9,10 +9,14 @@ import { Route, IndexRoute } from 'react-router'
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 import HomeView from 'views/HomeView/HomeView'
 import QuizList from 'containers/QuizList'
+import QuestionList from 'containers/QuestionList'
 
+// Added a route that will acccept /Quizzes/5/Questions and pass 5 as props.params.quizId
+// to the designated component (QuestionList)
 export default (store) => (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={HomeView} />
     <Route path='Quizzes' component={QuizList} />
+    <Route path='Quizzes/:quizId/Questions' component={QuestionList} />
   </Route>
 )

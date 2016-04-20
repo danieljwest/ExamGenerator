@@ -8,3 +8,4 @@ config3/**
 *.spec.js
 src/index.html
 api/config/index.js
+src/redux/utils/langs.js

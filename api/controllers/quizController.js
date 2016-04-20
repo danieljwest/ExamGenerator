@@ -1,11 +1,5 @@
 import db from '../core/database'
 export default function (router) {
-  // We heavily modified quizzes here to make it return the count of questions
-  // associated with a Quiz
-  // This is a bit horrendous and took me awhile to get the syntax for...
-  // Usually this is much easier in an ORM to do.
-  // Allegedly there's an undocumented function that makes this much better
-  // but... you know... undocumented
   router.get('/Quizzes/', function (req, res) {
     db.quiz.findAll({
       attributes: [
@@ -20,9 +14,7 @@ export default function (router) {
       res.json({success: true, quizzes})
     })
   })
-  // This guy probably works.
-  // Since I haven't written any proper tests I won't actually know if this guy works
-  // until we get to the point where we list our Questions
+
   router.get('/Quizzes/:id/Questions', function (req, res) {
     db.question.findAll({
       where: {
@@ -31,6 +23,28 @@ export default function (router) {
     }).then((questions) => {
       res.json({success: true, questions})
     })
+  })
+  // Allows us to post our question and have it save to the database.
+  router.post('/Quizzes/:quizId/Questions', function (req, res) {
+    if (req.body.id) {
+      db.question.update({id: req.body.id, title: req.body.title,
+                    questionMarkdown: req.body.questionMarkdown,
+                    QuizId: req.params.quizId
+                    }, {where: {id: req.body.id}}).then((result) => {
+                      res.json({success: true, id: req.body.id})
+                    }).catch((error) => {
+                      res.json({success: false, error})
+                    })
+    } else {
+      db.question.create({id: req.body.id, title: req.body.title,
+                  questionMarkdown: req.body.questionMarkdown,
+                  QuizId: req.params.quizId
+                  }).then((result) => {
+                    res.json({success: true, id: result.id})
+                  }).catch((error) => {
+                    res.json({success: false, error})
+                  })
+    }
   })
 
   router.post('/Quizzes', function (req, res) {
