@@ -55,9 +55,11 @@ export class QuizContainer extends React.Component {
   }
 
   render () {
+    // Added questionCount to the QuizListItem... if they were the same case this would
+    // not have been necessary due to the ...quiz
     const quizzes = this.props.quizzes.map((quiz) => {
       return (<QuizListItem key={quiz.name} name={quiz.id}
-        onClick={this.props.showEditQuizModal} {...quiz} />)
+        onClick={this.props.showEditQuizModal} questionCount={quiz.QuestionCount} {...quiz} />)
     })
     let content = (<div>Requesting...</div>)
     if (!this.props.isRequesting) {

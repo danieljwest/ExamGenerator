@@ -53,9 +53,16 @@ const execute = () => {
   debug('Syncing to the database')
   db.sync({force: true}).then(() => {
     userService.add('admin', '1234', true)
+    // Added two subquestions for this quiz.
     db.quiz.create({
       name: 'Quiz 1',
-      isActive: true
+      isActive: true,
+      Questions: [
+        { title: 'Title 1', questionMarkdown: 'Markdown' },
+        { title: 'Title 2', questionMarkdown: 'Markdown3' }
+      ]
+    }, {
+      include: [ db.question ]
     })
     db.quiz.create({
       name: 'Quiz 2',
