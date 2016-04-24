@@ -24,7 +24,7 @@ const mapStateToProps = (state, props) => ({
 const TextCell = ({rowIndex, data, col, ...props}) => (
   <Cell {...props}>
     {data.get(rowIndex).get(col).length <= 100 ? data.get(rowIndex).get(col)
-      : data.get(rowIndex).substring(0, 100) + '...'}
+      : data.get(rowIndex).get(col).substring(0, 100) + '...'}
   </Cell>
 )
 TextCell.propTypes = {
@@ -94,7 +94,7 @@ export class QuestionContainer extends React.Component {
       <div className='container'>
         <button className='btn btn-success' onClick={this.props.showNewQuestionModal}>Add New</button>
         {content}
-        <ModalWindow title='Question' show={this.props.showModal} onHide={this.props.hideQuestionModal}>
+        <ModalWindow bsSize='large' title='Question' show={this.props.showModal} onHide={this.props.hideQuestionModal}>
           <QuestionForm onSubmit={this.saveQuestion} />
         </ModalWindow>
       </div>
