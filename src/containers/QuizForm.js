@@ -22,12 +22,12 @@ class QuizForm extends Component {
           <fieldset className='form-group'>
             <label htmlFor='name'>Name</label> <label className='text-danger'>{nameErrorMsg}</label>
             <input type='text' className='form-control' id='name'
-              placeholder='Enter name of the quiz' {...name} required=''/>
+              placeholder='Enter name of the quiz' {...name} required='' />
           </fieldset>
           <fieldset className='checkbox'>
             <label htmlFor='isActive'>
               <input type='checkbox' className='' id='isActive'
-                {...isActive} required=''/>Is Active?
+                {...isActive} required='' />Is Active?
             </label>
           </fieldset>
           <button type='submit' className='btn btn-primary btn-block' disabled={submitting}>Save

@@ -43,11 +43,11 @@ export class NavBar extends React.Component {
     if (isAuthenticated()) {
       authMenu = (
         <NavDropdown eventKey={5} title={username} id='user-nav-dropdown'>
-          <MenuItem eventKey='/Profile'><Glyphicon glyph='user'/> Profile</MenuItem>
-          <MenuItem><Glyphicon glyph='lock'/> Password</MenuItem>
+          <MenuItem eventKey='/Profile'><Glyphicon glyph='user' /> Profile</MenuItem>
+          <MenuItem><Glyphicon glyph='lock' /> Password</MenuItem>
           <MenuItem divider />
           <MenuItem eventKey={this.props.logout} id='logout-button'>
-            <Glyphicon glyph='log-out'/> Sign out</MenuItem>
+            <Glyphicon glyph='log-out' /> Sign out</MenuItem>
         </NavDropdown>
       )
     }
@@ -59,17 +59,17 @@ export class NavBar extends React.Component {
             <Navbar.Brand>
               <a href='/'>Our Site</a>
             </Navbar.Brand>
-            <Navbar.Toggle/>
+            <Navbar.Toggle />
           </Navbar.Header>
 
           <Navbar.Collapse>
             <Nav pullRight onSelect={this.props.handleSelect} id='top-nav'>
-              <MenuItem eventKey='/'><Glyphicon glyph='home'/> Home</MenuItem>
+              <MenuItem eventKey='/'><Glyphicon glyph='home' /> Home</MenuItem>
               <MenuItem eventKey='/Quizzes'> Quizzes</MenuItem>
                 {authMenu}
                 {!isAuthenticated() &&
                   <MenuItem eventKey={this.props.showLogin} id='login-button'>
-                    <Glyphicon glyph='log-in'/> Login</MenuItem>
+                    <Glyphicon glyph='log-in' /> Login</MenuItem>
                 }
             </Nav>
           </Navbar.Collapse>

@@ -37,12 +37,12 @@ class LoginForm extends Component {
           <fieldset className='form-group'>
             <label htmlFor='username'>Username</label> <label className='text-danger'>{userErrorMsg}</label>
             <input type='text' className='form-control' id='username'
-              placeholder='Enter username' {...username} required=''/>
+              placeholder='Enter username' {...username} required='' />
           </fieldset>
           <fieldset className='form-group'>
             <label htmlFor='password'>Password</label> <label className='text-danger'>{pwdErrorMsg}</label>
             <input type='password' className='form-control' id='password'
-              placeholder='Enter Password' {...password} required=''/>
+              placeholder='Enter Password' {...password} required='' />
           </fieldset>
           <button type='submit' className='btn btn-primary btn-block' disabled={submitting}>Log In
             {submitting ? <span className='loader glyphicon glyphicon-refresh spin'></span>

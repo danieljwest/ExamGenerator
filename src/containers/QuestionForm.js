@@ -66,12 +66,12 @@ class QuestionForm extends Component {
             <fieldset className='form-group'>
               <label htmlFor='title'>Title</label> <label className='text-danger'>{titleErrorMsg}</label>
               <input type='text' className='form-control' id='title'
-                placeholder='Enter title of the quiz' {...title} required=''/>
+                placeholder='Enter title of the quiz' {...title} required='' />
             </fieldset>
             <fieldset className='form-group'>
               <label htmlFor='question'>Question</label> <label className='text-danger'>{markdownErrorMsg}</label>
               <textarea rows={10} type='text' className='form-control' id='question'
-                placeholder='Enter title of the quiz' {...questionMarkdown} required=''/>
+                placeholder='Enter title of the quiz' {...questionMarkdown} required='' />
             </fieldset>
             <button type='submit' className='btn btn-primary btn-block' disabled={submitting}>Save
               {submitting ? <span className='loader glyphicon glyphicon-refresh spin'></span>

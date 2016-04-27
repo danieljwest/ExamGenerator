@@ -16,14 +16,14 @@ import '../../styles/core.scss'
 function CoreLayout ({ children }) {
   return (
     <div>
-      <NavBar/>
-      <Login/>
+      <NavBar />
+      <Login />
       <div className='container'>
         <div id='root' style={{height: '100%'}}>
           {children}
         </div>
         <div className='footer'>
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </div>

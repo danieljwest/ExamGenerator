@@ -77,7 +77,7 @@ export class QuizContainer extends React.Component {
       <div className='container'>
         <button className='btn btn-success' onClick={this.props.showNewQuizModal}>Add New</button>
         <input type='checkbox'
-          onChange={this.handleOnChange} checked={this.props.showAll}/> Show All
+          onChange={this.handleOnChange} checked={this.props.showAll} /> Show All
           {content}
         <ModalWindow title='Quiz' show={this.props.showModal} onHide={this.props.hideModal}>
           <QuizForm initialValues={this.props.selectedQuiz} onSubmit={this.props.saveQuiz} />
